@@ -1,4 +1,4 @@
-class Interface:
+﻿class Interface:
 	def initialize():
 		pass
 
