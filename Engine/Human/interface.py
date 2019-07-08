@@ -1,18 +1,23 @@
-﻿class Interface:
-	def initialize():
+﻿from ..interface import Interface
+
+class HumanInterface(Interface):
+	def __init__(self):
 		pass
 
-	def finalize():
+	def initialize(self):
 		pass
 
-	def setBoard():
+	def finalize(self):
 		pass
 
-	def setPosition():
+	def setBoard(self):
 		pass
 
-	def think():
+	def setPosition(self):
 		pass
 
-	def getBestMove():
+	def think(self):
+		pass
+
+	def getBestMove(self):
 		pass

@@ -1,6 +1,4 @@
-﻿from ..interface import Interface
-
-class AIInterface(Interface):
+﻿class Interface:
 	def __init__(self):
 		pass
 

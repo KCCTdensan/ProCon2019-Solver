@@ -1,6 +1,6 @@
 ﻿from ..interface import Interface
 
-class AIInterface(Interface):
+class RandomInterface(Interface):
 	def __init__(self):
 		pass
 
