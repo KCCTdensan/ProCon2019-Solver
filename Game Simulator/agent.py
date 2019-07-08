@@ -1,4 +1,4 @@
-import numpy as np
+﻿import numpy as np
 
 class Agent:
 	def __init__(self, position:[int, int]):
