@@ -1,15 +1,12 @@
-﻿from ..Engine.interface import Interface
-import numpy as np
+﻿import numpy as np
 import random
 
-class StageInfo:
-	def __init__(self):
-		return
+from ..Common.field import Field
+from field import Field
 
-	def __init__(self, boardPanels, boardX:int, boardY:int, numTurns:int):
-		self.boardPanels = boardPanels
-		self.boardX = boardX
-		self.boardY = boardY
+class StageInfo:
+	def __init__(self, field:Field, numTurns:int):
+		self.field = field
 		self.numTurns = numTurns
 		return
 
@@ -18,21 +15,32 @@ class StageInfo:
 		self.boardY = random.randint(10, 20)
 		return
 
+class Score:
+	def __init__(self):
+		pass
+
+	def __updateTileScore(self, field:Field):
+		pass
+
+	def __updateRegionScore(self, field:Field):
+		pass
+
+	def update(self, boardPanels):
+		self.__updateTileScore(boardPanels)
+		self.__updateRegionScore(boardPanels)
+
 class Stage:
 	def __init__(self, stageInfo:StageInfo):
-		self.__boardPanels = stageInfo.boardPanels
-		self.__boardX = stageInfo.boardX
-		self.__boardY = stageInfo.boardY
+		self.__field = stageInfo.field
 		self.__numTurns = stageInfo.numTurns
 		self.__currentTurn = 0
-		self.__redRegionScore = 0
-		self.__redTileScore = 0
-		self.__blueRegionScore = 0
-		self.__blueTileScore = 0
+		self.__scoreRed = Score()
+		self.__scoreBlue = Score()
 		return
 
 	def __updateScore(self):
-		return
+		self.__scoreRed.update(self.__field)
+		self.__scoreBlue.update(self.__field)
 
 	def canAct(self, playerIntentions:list)->bool:
 		return False
@@ -40,5 +48,5 @@ class Stage:
 	def act(self, playerIntentions:list)->bool:
 		if not canAct(playerIntentions):
 			return False
-
+		self.__updateScore()
 		return True
