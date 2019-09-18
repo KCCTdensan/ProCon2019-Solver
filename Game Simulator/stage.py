@@ -41,11 +41,12 @@ class Stage:
 	def __updateScore(self):
 		self.__scoreRed.update(self.__field)
 		self.__scoreBlue.update(self.__field)
+		return
 
 	def canAct(self, playerIntentions:list)->bool:
 		return False
 
-	def act(self, playerIntentions:list)->bool:
+	def act(self, playerIntentions)->bool:
 		if not canAct(playerIntentions):
 			return False
 		self.__updateScore()
